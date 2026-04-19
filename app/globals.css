@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource/noto-serif-jp/400.css";
+@import "@fontsource/noto-serif-jp/500.css";
+@import "@fontsource/noto-serif-jp/700.css";
+@import "@fontsource/noto-sans-jp/400.css";
+@import "@fontsource/noto-sans-jp/500.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Wa-modern color palette */
+  --kinari: 45 30% 96%;
+  --washi: 40 20% 98%;
+  --sumi: 220 10% 15%;
+  --usuzumi: 220 5% 45%;
+  --ai: 210 45% 35%;
+  --shu: 5 75% 50%;
+  --kincha: 35 55% 45%;
+
+  /* Semantic tokens */
+  --background: var(--kinari);
+  --foreground: var(--sumi);
+  --card: var(--washi);
+  --card-foreground: var(--sumi);
+  --popover: var(--washi);
+  --popover-foreground: var(--sumi);
+  --primary: var(--ai);
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 15% 92%;
+  --secondary-foreground: var(--sumi);
+  --muted: 40 10% 90%;
+  --muted-foreground: var(--usuzumi);
+  --accent: var(--shu);
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 15% 85%;
+  --input: 40 15% 85%;
+  --ring: var(--ai);
+  --radius: 0.25rem;
+
+  --chart-1: var(--ai);
+  --chart-2: var(--shu);
+  --chart-3: var(--kincha);
+  --chart-4: var(--usuzumi);
+  --chart-5: 210 30% 50%;
+}
+
+.dark {
+  --background: var(--sumi);
+  --foreground: var(--kinari);
+  --card: 220 10% 12%;
+  --card-foreground: var(--kinari);
+  --popover: 220 10% 12%;
+  --popover-foreground: var(--kinari);
+  --primary: 210 50% 55%;
+  --primary-foreground: var(--sumi);
+  --secondary: 220 10% 20%;
+  --secondary-foreground: var(--kinari);
+  --muted: 220 10% 25%;
+  --muted-foreground: 220 5% 65%;
+  --accent: var(--shu);
+  --accent-foreground: var(--kinari);
+  --border: 220 10% 25%;
+  --input: 220 10% 25%;
+  --ring: 210 50% 55%;
+}
+
+@theme inline {
+  --font-sans: "Noto Sans JP", sans-serif;
+  --font-serif: "Noto Serif JP", serif;
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-kinari: hsl(var(--kinari));
+  --color-washi: hsl(var(--washi));
+  --color-sumi: hsl(var(--sumi));
+  --color-usuzumi: hsl(var(--usuzumi));
+  --color-ai: hsl(var(--ai));
+  --color-shu: hsl(var(--shu));
+  --color-kincha: hsl(var(--kincha));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply bg-background;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Vertical writing support */
+  .vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .vertical-lr {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+  }
+
+  /* Washi paper texture effect */
+  .washi-texture {
+    position: relative;
+  }
+
+  .washi-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ink brush stroke effect for borders */
+  .ink-border {
+    position: relative;
+  }
+
+  .ink-border::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--sumi) / 0.2) 10%,
+      hsl(var(--sumi) / 0.3) 50%,
+      hsl(var(--sumi) / 0.2) 90%,
+      transparent 100%
+    );
+  }
+
+  /* Hanko (seal) style accent */
+  .hanko {
+    @apply inline-flex items-center justify-center;
+    @apply text-xs font-serif font-medium;
+    @apply w-7 h-7 rounded-sm;
+    background-color: hsl(var(--shu));
+    color: white;
+    transform: rotate(-3deg);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Tategaki (vertical text) poem display */
+  .tategaki {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-feature-settings: "vpal";
+  }
+}
