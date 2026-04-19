@@ -7,7 +7,7 @@ import { ArrowRight, PenLine, Vote, Sparkles } from "lucide-react";
 // Sample featured prompt
 const featuredOdai = {
   id: "spring-2024",
-  maeku: ["春風に", "心揺れつつ"],
+  maeku: ["春の風吹き", "心揺れつつ"],
   theme: "春の訪れ",
   submissionCount: 42,
   deadline: "2024年4月30日",

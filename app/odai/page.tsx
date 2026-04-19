@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 const existingOdai = [
   {
     id: "spring-2024",
-    maeku: ["春風に", "心揺れつつ"],
+    maeku: ["春の風吹き", "心揺れつつ"],
     theme: "春の訪れ",
     status: "active",
     submissionCount: 42,
@@ -31,7 +31,7 @@ const existingOdai = [
   },
   {
     id: "memory-2024",
-    maeku: ["思い出の", "色褪せぬまま"],
+    maeku: ["思い出深く", "色褪せぬまま"],
     theme: "記憶",
     status: "active",
     submissionCount: 28,
@@ -40,7 +40,7 @@ const existingOdai = [
   },
   {
     id: "rain-2024",
-    maeku: ["雨音に", "耳を澄ませば"],
+    maeku: ["雨の音聞き", "耳を澄ませば"],
     theme: "雨の日",
     status: "upcoming",
     submissionCount: 0,
@@ -49,7 +49,7 @@ const existingOdai = [
   },
   {
     id: "winter-2023",
-    maeku: ["雪降りて", "静まる街に"],
+    maeku: ["雪しんしんと", "静まる街に"],
     theme: "冬の夜",
     status: "closed",
     submissionCount: 67,
@@ -58,7 +58,7 @@ const existingOdai = [
   },
   {
     id: "moon-2023",
-    maeku: ["月明かり", "照らす道行き"],
+    maeku: ["月の明かりが", "照らす道行き"],
     theme: "月夜",
     status: "closed",
     submissionCount: 53,
@@ -189,7 +189,7 @@ export default function OdaiPage() {
                   <div className="space-y-4">
                     {(["first", "second"] as const).map((line, idx) => {
                       const labels = ["上の句（七）", "下の句（七）"];
-                      const placeholders = ["春風に", "心揺れつつ"];
+                      const placeholders = ["春の風吹き", "心揺れつつ"];
                       const count = moraCounts[line];
                       const isValid = isValidMora(line);
                       const hasContent = lines[line].trim().length > 0;

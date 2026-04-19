@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // Sample data for voting
 const odaiForVoting = {
   id: "spring-2024",
-  maeku: ["春風に", "心揺れつつ"],
+  maeku: ["春の風吹き", "心揺れつつ"],
   theme: "春の訪れ",
 };
 

@@ -13,19 +13,19 @@ import { ArrowLeft, Check, AlertCircle } from "lucide-react";
 const availableOdai = [
   {
     id: "spring-2024",
-    maeku: ["春風に", "心揺れつつ"],
+    maeku: ["春の風吹き", "心揺れつつ"],
     theme: "春の訪れ",
     deadline: "2024年4月30日",
   },
   {
     id: "memory-2024",
-    maeku: ["思い出の", "色褪せぬまま"],
+    maeku: ["思い出深く", "色褪せぬまま"],
     theme: "記憶",
     deadline: "2024年5月15日",
   },
   {
     id: "rain-2024",
-    maeku: ["雨音に", "耳を澄ませば"],
+    maeku: ["雨の音聞き", "耳を澄ませば"],
     theme: "雨の日",
     deadline: "2024年5月31日",
   },
